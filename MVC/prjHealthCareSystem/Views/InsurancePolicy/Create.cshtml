@@ -1,0 +1,53 @@
+@model prjHealthCareSystem.Models.InsurancePolicy
+
+<h2>Create Insurance Policy</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            
+            <div class="form-group mb-3">
+                <label asp-for="PolicyName" class="control-label fw-bold"></label>
+                <input asp-for="PolicyName" class="form-control" placeholder="MedCorp Premium 2026" />
+                <span asp-validation-for="PolicyName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="PatientId" class="control-label fw-bold"></label>
+                <select asp-for="PatientId" class ="form-select" asp-items="ViewBag.PatientId"></select>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="StartDate" class="control-label fw-bold"></label>
+                <input asp-for="StartDate" class="form-control" type="date" />
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="EndDate" class="control-label fw-bold"></label>
+                <input asp-for="EndDate" class="form-control" type="date" />
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Status" class="control-label fw-bold"></label>
+                <select asp-for="Status" class="form-select">
+                    <option value="Draft">Draft</option>
+                    <option value="Active">Active</option>
+                    <option value="On Hold">On Hold</option>
+                    <option value="Expired">Expired</option>
+                </select>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="ServiceLevel" class="control-label fw-bold"></label>
+                <input asp-for="ServiceLevel" class="form-control" placeholder="e.g., Premium, Standard" />
+                <span asp-validation-for="ServiceLevel" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label class="control-label fw-bold">Upload Consent PDF</label>
+                <input type="file" name="upload" class="form-control" accept="application/pdf" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div><a asp-action="Index">Back to List</a></div>
